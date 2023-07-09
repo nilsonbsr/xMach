@@ -1,7 +1,7 @@
 # mach4
 Hier ist eine Sammlung von MACH4 Dokumentation 
 
-Einführung
+**Einführung**
 
 Das Booten eines Mikro-Kernel/Server-Systems ist etwas komplizierter als das Booten eines Makro-Kernelsystems, da mehr Dateien vorhanden sein müssen und korrekt funktionieren müssen, bevor das System Eingaben des Benutzers akzeptiert.
 
