@@ -1,10 +1,7 @@
+# mach4
+Hier ist eine Sammlung von MACH4 Dokumentation 
 
-# MACH4 Installation und Dokumentation 
-
-### *This is project is not finished yet! We gather these Information from different sources and our goal is to install MACH4 and make it work on i386 architecture. This is Project is kind of try and error porject and we hope in the end we could provide a detailed documentation for those who are interessted.*  <br> 
-
----
-
+**Einführung**
 
 Das Booten eines Mikro-Kernel/Server-Systems ist etwas komplizierter als das Booten eines Makro-Kernelsystems, da mehr Dateien vorhanden sein müssen und korrekt funktionieren müssen, bevor das System Eingaben des Benutzers akzeptiert.
 
