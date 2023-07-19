@@ -29,12 +29,13 @@ Booting a micro-kernel/server system is a bit more complicated than booting a ma
 
 ___
 
-## Preperation
+## Prerequisites
 
-all needed matrial can be found [here](https://github.com/neozeed/xMach/releases/tag/v1_0).
-
+<!--all needed matrial can be found [here](https://github.com/neozeed/xMach/releases/tag/v1_0).
+-->
 After our first two approaches, including [installation of  _**Mach 4**_ from the University of Utah](https://www-old.cs.utah.edu/flux/mach4/html/) under KVM, were unsuccessful, we decided to give windows 10 a try. 
 
+### _Installing WLS2_ 
 First, we need to install _**WSL2**_ as well as a _**Debian-based Linux**_, preferably Ubuntu 20.4.x. To do that, open either Windows Command Prompt or PowerShell as an administrator and type the command below. 
 
 ```
@@ -43,6 +44,7 @@ wsl --install
 
 After that, install Ubuntu from the Microsoft Store.
 
+### _Setup 32-bit Environment_
 
 Now let's set up a 32-bit development enviroment on our 64-bit Debian-based Linux system, ensuring that necessary libreries and tools for compiling and running 32-bit applications. 
 
@@ -51,4 +53,12 @@ dpkg --add-architecture i386
 apt-get update
 apt-get install libc6:i386 libncurses5:i386 libstdc++6:i386 libc6-dev:i386 libfl-dev:i386
 apt-get install sharutils gcc-multilib build-essential
+```
+
+### _Adding "GCC 2.7.2.3" into PATH_  
+
+Next step is to add old _**GCC 2.7.2.3**__ into our linux PATH-Environment. To do that:
+
+```
+export PATH=/usr/local/i586-linux2/bin:/usr/local/i586-linux2/lib/gcc-lib/i586-linux/2.7.2.3:$PATH
 ```
