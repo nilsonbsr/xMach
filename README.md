@@ -23,7 +23,9 @@ Die CMU-Umgebung hat auch zu einer gewissen **Komplexität** des üblichen BSD-U
 
 ## Introduction
 
-Booting a micro-kernel/server system is a bit more complicated than booting a macro-kernel system because more files must be present and functioning correctly before the system will accept input from the user. Our goal is to provide a step-by-step guideline to install a _**xMach**_ microkernel on a modern computer. This documentation is based on our trial and error steps and is an ongoing project
+Booting a micro-kernel/server system is a bit more complicated than booting a macro-kernel system because more files must be present and functioning correctly before the system will accept input from the user. Our goal is to provide a step-by-step guideline to install a _**xMach**_ microkernel on a modern computer. This documentation is based on our trial and error steps and is an ongoing project.
+
+_a special thanks to [**neozeed**](https://virtuallyfun.com/) for providing us all the resources_.
 
 
 
@@ -61,4 +63,14 @@ Next step is to add old _**GCC 2.7.2.3**__ into our linux PATH-Environment. To d
 
 ```
 export PATH=/usr/local/i586-linux2/bin:/usr/local/i586-linux2/lib/gcc-lib/i586-linux/2.7.2.3:$PATH
+```
+
+### _Source-Code & Permissions_
+one more step, and then we are all set to start compiling. Extract _xMach-1_0_ and make sure that all the sub-folders have executable permissions by simply execute the following codes.
+
+```
+chmod +x kernel/c*
+chmod +x kernel/*sh
+chmod +x lites/conf*
+chmod +x lites/conf/*
 ```
