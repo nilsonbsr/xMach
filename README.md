@@ -1,4 +1,4 @@
-# mach4
+<!---# mach4
 Hier ist eine Sammlung von MACH4 Dokumentation 
 
 **Einführung**
@@ -18,3 +18,37 @@ Die CMU-Umgebung hat auch zu einer gewissen **Komplexität** des üblichen BSD-U
 2-   Die anderen Komplikationen sind die Tatsache, dass wir normalerweise ein Super-Root und ein lokales Root haben, um das CMU-RFS-Dateisystem zu unterstützen, und die Tatsache, dass man beim Hochfahren als Einzelbenutzer keinen Root-Zugang hat, sondern mit der Benutzerkennung "opr" läuft.
 
 3-  Außerdem haben wir auf CMU-Rechnern eine /etc/rc, die darauf besteht, dass /vmunix ein symbolischer Link zu dem Unix-Server ist, auf dem Sie laufen, bevor der Bootvorgang zum Multi-User abgeschlossen wird.
+
+-->
+
+## Introduction
+
+Booting a micro-kernel/server system is a bit more complicated than booting a macro-kernel system because more files must be present and functioning correctly before the system will accept input from the user. Our goal is to provide a step-by-step guideline to install a _**xMach**_ microkernel on a modern computer. This documentation is based on our trial and error steps and is an ongoing project
+
+
+
+___
+
+## Preperation
+
+all needed matrial can be found [here](https://github.com/neozeed/xMach/releases/tag/v1_0).
+
+After our first two approaches, including [installation of  _**Mach 4**_ from the University of Utah](https://www-old.cs.utah.edu/flux/mach4/html/) under KVM, were unsuccessful, we decided to give windows 10 a try. 
+
+First, we need to install _**WSL2**_ as well as a _**Debian-based Linux**_, preferably Ubuntu 20.4.x. To do that, open either Windows Command Prompt or PowerShell as an administrator and type the command below. 
+
+```
+wsl --install
+```
+
+After that, install Ubuntu from the Microsoft Store.
+
+
+Now let's set up a 32-bit development enviroment on our 64-bit Debian-based Linux system, ensuring that necessary libreries and tools for compiling and running 32-bit applications. 
+
+```
+dpkg --add-architecture i386
+apt-get update
+apt-get install libc6:i386 libncurses5:i386 libstdc++6:i386 libc6-dev:i386 libfl-dev:i386
+apt-get install sharutils gcc-multilib build-essential
+```
