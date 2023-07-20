@@ -59,12 +59,12 @@ apt-get install sharutils gcc-multilib build-essential
 
 ### _Adding "GCC 2.7.2.3" into PATH_  
 
-Next step is to add old _**GCC 2.7.2.3**__ into our linux PATH-Environment. To do that:
+Next step is to add old _**GCC 2.7.2.3**__ into our linux PATH-Environment and make sure to do this step first. For some reason this affects the whole process if it's not done at the beginning. To do that:
 
 ```
 export PATH=/usr/local/i586-linux2/bin:/usr/local/i586-linux2/lib/gcc-lib/i586-linux/2.7.2.3:$PATH
 ```
-
+make sure to also copy/ move the whole content of _**i586-linux2.tar.gz**_ to _/usr/local/_.
 ### _Source-Code & Permissions_
 one more step, and then we are all set to start compiling. Extract _xMach-1_0_ and make sure that all the sub-folders have executable permissions by simply execute the following codes.
 
