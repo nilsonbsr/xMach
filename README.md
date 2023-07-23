@@ -31,7 +31,7 @@ _a special thanks to [**neozeed**](https://virtuallyfun.com/) for providing us a
 ___
 
 ### _Best practice_
-We encountered some problems during the installation of _xMach_ under WSL, which were not the case under native _**Ubuntu**_. So, we recommend starting with Ubuntu to save time and nerves
+We encountered some problems during the installation of _xMach_ under WSL, which were not the case under nativ _**Ubuntu**_. So, we recommend starting with Ubuntu to save time and nerves
 ___
 
 ## Prerequisites
