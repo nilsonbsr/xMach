@@ -99,4 +99,20 @@ To solve this problem, we have to copy the _**'Makeconf'**_ file from this path 
 ```
 cp ../updated-conf/kernel/Makeconf .
 ```
-Type _**make**_ and wait for all steps to run through. 
+Type _**make**_ and wait for all steps to run through. You might encounter some _warnings_ while running make, just ignore them. After that, run _**make install**_ to take the binaries generated in the previous step and place them in their respective locations to ensure for easy accessibility.
+
+
+### _Building Lites_
+
+This step is similar to the previous one. Here, we also have to create a folder named _**'lobject'**_ first and then run the command below.
+
+```
+../lites/configure --host=i586-linux --target=i586-linux --build=i586-linux --enable-mach4 --prefix=/usr/local/xmach --with-mach4=../kernel
+```
+
+And don't forget to update the Makeconf file.
+
+```
+cp ../updated-conf/lites/conf/Makeconf conf
+```
+And then let's run _**make**_ as well as _**make install**_ once again.
