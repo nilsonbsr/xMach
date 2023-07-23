@@ -28,16 +28,24 @@ Booting a micro-kernel/server system is a bit more complicated than booting a ma
 _a special thanks to [**neozeed**](https://virtuallyfun.com/) for providing us all the resources_.
 
 
+___
 
+### _Best practice_
+We encountered some problems during the installation of _xMach_ under WSL, which were not the case under native _**Ubuntu**_. So, we recommend starting with Ubuntu to save time and nerves
 ___
 
 ## Prerequisites
+
+### _Dependencies you might need to install in advance_
+* [bison](https://www.gnu.org/software/bison/)
+* [flex](https://geeksww.com/tutorials/operating_systems/linux/installation/installing_flex_fast_lexical_analyzer_ubuntu_linux.php)
+* [gawk](https://phoenixnap.com/kb/gawk-linux)
 
 <!--all needed matrial can be found [here](https://github.com/neozeed/xMach/releases/tag/v1_0).
 -->
 After our first two approaches, including [installation of  _**Mach 4**_ from the University of Utah](https://www-old.cs.utah.edu/flux/mach4/html/) under KVM, were unsuccessful, we decided to give windows 10 a try. 
 
-### _Installing WLS2_ 
+### _Installing WSL2_ 
 First, we need to install _**WSL2**_ as well as a _**Debian-based Linux**_, preferably Ubuntu 20.4.x. To do that, open either Windows Command Prompt or PowerShell as an administrator and type the command below. 
 
 ```
@@ -66,7 +74,7 @@ export PATH=/usr/local/i586-linux2/bin:/usr/local/i586-linux2/lib/gcc-lib/i586-l
 ```
 make sure to also copy/ move the whole content of _**i586-linux2.tar.gz**_ to _/usr/local/_.
 ### _Source-Code & Permissions_
-one more step, and then we are all set to start compiling. Extract _xMach-1_0_ and make sure that all the sub-folders have executable permissions by simply execute the following codes.
+one more step, and then we are all set to start compiling. Extract **_xMach-1_0_** and make sure that all the sub-folders have executable permissions by simply execute the following codes.
 
 ```
 chmod +x kernel/c*
@@ -74,3 +82,21 @@ chmod +x kernel/*sh
 chmod +x lites/conf*
 chmod +x lites/conf/*
 ```
+
+### _Building the xMach Kernel_
+
+First, we have to create a folder named _**'kobject'**_ in our cloned repository. Afterwards, change to this directory and execute the command below.
+
+```
+../kernel/configure --host=i586-linux --target=i586-linux --build=i586-linux --enable-elf --enable-libmach --enable-linuxdev --prefix=/usr/local/xmach
+```
+
+According to original Documentation from [**neozeed**](https://virtuallyfun.com/) 
+ > configure never populates the compiler tools right. 
+
+To solve this problem, we have to copy the _**'Makeconf'**_ file from this path (/updated-conf/kernel/Makeconf), and then we are good to go. 
+
+```
+cp ../updated-conf/kernel/Makeconf .
+```
+Type _**make**_ and wait for all steps to run through. 
