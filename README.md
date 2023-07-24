@@ -30,8 +30,8 @@ _a special thanks to [**neozeed**](https://virtuallyfun.com/) for providing us a
 
 ___
 
-### _Update: Best practice_
-We encountered some problems during the installation of _xMach_ under WSL, which were not the case under nativ _**Ubuntu**_. So, we recommend starting with Ubuntu to save time and nerves.
+### _Best practice_
+We encountered some problems during the installation of _xMach_ under WSL, which were not the case under native _**Ubuntu**_. So, we recommend starting with Ubuntu to save time and nerves
 ___
 
 ## Prerequisites
@@ -117,4 +117,4 @@ And don't forget to update the Makeconf file.
 ```
 cp ../updated-conf/lites/conf/Makeconf conf
 ```
-Let's run _**make**_ as well as _**make install**_ once again.
+And then let's run _**make**_ as well as _**make install**_ once again.
