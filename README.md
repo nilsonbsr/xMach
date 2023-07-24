@@ -23,15 +23,15 @@ Die CMU-Umgebung hat auch zu einer gewissen **Komplexität** des üblichen BSD-U
 
 ## Introduction
 
-Booting a micro-kernel/server system is a bit more complicated than booting a macro-kernel system because more files must be present and functioning correctly before the system will accept input from the user. Our goal is to provide a step-by-step guideline to install a _**xMach**_ microkernel on a modern computer. This documentation is based on our trial and error steps and is an ongoing project.
+Booting a micro-kernel is a bit more complicated than booting a macro-kernel system because more files must be present and functioning correctly before the system will accept input from the user. Our goal is to provide a step-by-step guideline to install a _**xMach**_ microkernel on a modern computer. This documentation is based on our trial and error steps and is an ongoing project.
 
 _a special thanks to [**neozeed**](https://virtuallyfun.com/) for providing us all the resources_.
 
 
 ___
 
-### _Best practice_
-We encountered some problems during the installation of _xMach_ under WSL, which were not the case under native _**Ubuntu**_. So, we recommend starting with Ubuntu to save time and nerves
+### _Update: Best practice_
+We encountered some problems during the installation of _xMach_ under WSL, which were not the case under nativ _**Ubuntu**_. So, we recommend starting with Ubuntu to save time and nerves.
 ___
 
 ## Prerequisites
@@ -67,7 +67,7 @@ apt-get install sharutils gcc-multilib build-essential
 
 ### _Adding "GCC 2.7.2.3" into PATH_  
 
-Next step is to add old _**GCC 2.7.2.3**__ into our linux PATH-Environment and make sure to do this step first. For some reason this affects the whole process if it's not done at the beginning. To do that:
+Next step is to add old _**GCC 2.7.2.3**__ into our linux PATH and make sure to do this step first. For some reason this affects the whole process if it's not done at the beginning. To do that:
 
 ```
 export PATH=/usr/local/i586-linux2/bin:/usr/local/i586-linux2/lib/gcc-lib/i586-linux/2.7.2.3:$PATH
@@ -99,7 +99,9 @@ To solve this problem, we have to copy the _**'Makeconf'**_ file from this path 
 ```
 cp ../updated-conf/kernel/Makeconf .
 ```
-Type _**make**_ and wait for all steps to run through. You might encounter some _warnings_ while running make, just ignore them. After that, run _**make install**_ to take the binaries generated in the previous step and place them in their respective locations to ensure for easy accessibility.
+Before compiling and installing our utilities using  _**make**_, make sure that the /usr/local/i586-linux2/bin folder has the appropriate permissions.
+
+Now, type _**make**_ and wait for all steps to run through. You might encounter some _warnings_ while running make, just ignore them. After that, run _**make install**_ to take the binaries generated in the previous step and place them in their respective locations to ensure for easy accessibility.
 
 
 ### _Building Lites_
@@ -115,4 +117,4 @@ And don't forget to update the Makeconf file.
 ```
 cp ../updated-conf/lites/conf/Makeconf conf
 ```
-And then let's run _**make**_ as well as _**make install**_ once again.
+Let's run _**make**_ as well as _**make install**_ once again.
