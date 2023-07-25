@@ -30,10 +30,13 @@ _a special thanks to [**neozeed**](https://virtuallyfun.com/) for providing us a
 
 ___
 
-### _Best practice_
-We encountered some problems during the installation of _xMach_ under WSL, which were not the case under native _**Ubuntu**_. So, we recommend starting with Ubuntu to save time and nerves
+### _Best practices_
+We encountered some problems during the installation of _xMach_ under WSL, which were not the case under nativ _**Ubuntu**_. So, we recommend starting with Ubuntu and _**QEMU**_ to save time and nerves.
+
+This article can be helpful in case you don't know [How to Install an Ubuntu VM with QEMU](https://www.makeuseof.com/install-ubuntu-virtual-machine-with-qemu/)  
 ___
 
+Before 
 ## Prerequisites
 
 ### _Dependencies you might need to install in advance_
@@ -53,6 +56,11 @@ wsl --install
 ```
 
 After that, install Ubuntu from the Microsoft Store.
+
+### _Installing Ubuntu with QEMU_
+
+[This documentation](https://www.makeuseof.com/install-ubuntu-virtual-machine-with-qemu/) should help you install and configure an Ubuntu VM with QEMU.
+
 
 ### _Setup 32-bit Environment_
 
@@ -74,7 +82,7 @@ export PATH=/usr/local/i586-linux2/bin:/usr/local/i586-linux2/lib/gcc-lib/i586-l
 ```
 make sure to also copy/ move the whole content of _**i586-linux2.tar.gz**_ to _/usr/local/_.
 ### _Source-Code & Permissions_
-one more step, and then we are all set to start compiling. Extract **_xMach-1_0_** and make sure that all the sub-folders have executable permissions by simply execute the following codes.
+one more step, and then we are all set to start compiling. Extract **_xMach-1_0_** or clone the original GitHub-Repo directly from [here](https://github.com/neozeed/xMach) and make sure that all the sub-folders have executable permissions by simply execute the following codes.
 
 ```
 chmod +x kernel/c*
@@ -91,8 +99,8 @@ First, we have to create a folder named _**'kobject'**_ in our cloned repository
 ../kernel/configure --host=i586-linux --target=i586-linux --build=i586-linux --enable-elf --enable-libmach --enable-linuxdev --prefix=/usr/local/xmach
 ```
 
-According to original Documentation from [**neozeed**](https://virtuallyfun.com/) 
- > configure never populates the compiler tools right. 
+According to original Documentation from [**neozeed**](https://virtuallyfun.com/):
+ > "configure never populates the compiler tools right."
 
 To solve this problem, we have to copy the _**'Makeconf'**_ file from this path (/updated-conf/kernel/Makeconf), and then we are good to go. 
 
